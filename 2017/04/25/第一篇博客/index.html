@@ -6,14 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Sail</title>
+  <title>Spark2.1初体验 | Sail</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Sail">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="Spark2.1初体验 Spark 作为现在最流行的大数据解决方案，是一种快速、通用分布式计算框架，非常适合处理大量数据，特别是机器学习，现在开始从最初的一点一滴学起。   安装JDK、Scala、Spark standalone 模式下起一个master、一个slave 启动spark thrift server 服务 用beelibe的方式连接spark thrift server    安装">
+<meta name="keywords" content="spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark2.1初体验">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/第一篇博客/index.html">
 <meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Spark2.1初体验 Spark 作为现在最流行的大数据解决方案，是一种快速、通用分布式计算框架，非常适合处理大量数据，特别是机器学习，现在开始从最初的一点一滴学起。   安装JDK、Scala、Spark standalone 模式下起一个master、一个slave 启动spark thrift server 服务 用beelibe的方式连接spark thrift server    安装">
+<meta property="og:image" content="http://yoursite.com/image/1.png">
+<meta property="og:image" content="http://yoursite.com/image/2.png">
+<meta property="og:image" content="http://yoursite.com/image/3.png">
+<meta property="og:updated_time" content="2017-04-25T07:07:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sail">
+<meta name="twitter:title" content="Spark2.1初体验">
+<meta name="twitter:description" content="Spark2.1初体验 Spark 作为现在最流行的大数据解决方案，是一种快速、通用分布式计算框架，非常适合处理大量数据，特别是机器学习，现在开始从最初的一点一滴学起。   安装JDK、Scala、Spark standalone 模式下起一个master、一个slave 启动spark thrift server 服务 用beelibe的方式连接spark thrift server    安装">
+<meta name="twitter:image" content="http://yoursite.com/image/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Sail" type="application/atom+xml">
   
@@ -131,36 +140,91 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-第一篇博客" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/25/第一篇博客/" class="archive-article-date">
-  	<time datetime="2017-04-25T02:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/25/第一篇博客/">Spark2.1初体验</a>
+    <h1 class="article-title" itemprop="name">
+      Spark2.1初体验
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/25/第一篇博客/" class="archive-article-date">
+  	<time datetime="2017-04-25T02:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spark2-1初体验"><a href="#Spark2-1初体验" class="headerlink" title="Spark2.1初体验"></a>Spark2.1初体验</h1><hr>
+<p>Spark 作为现在最流行的大数据解决方案，是一种快速、通用分布式计算框架，非常适合处理大量数据，特别是机器学习，现在开始从最初的一点一滴学起。</p>
+<blockquote>
+<ul>
+<li>安装JDK、Scala、Spark</li>
+<li>standalone 模式下起一个master、一个slave</li>
+<li>启动spark thrift server 服务</li>
+<li>用beelibe的方式连接spark thrift server</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="安装事宜"><a href="#安装事宜" class="headerlink" title="安装事宜"></a>安装事宜</h2><blockquote>
+<ul>
+<li>我所选用的JDK是1.8版本，Scala是2.12.1</li>
+<li>JDK、Scala、Spark均需要配置环境变量</li>
+</ul>
+</blockquote>
+<h3 id="1-启动master"><a href="#1-启动master" class="headerlink" title="1.启动master"></a>1.启动master</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd $SPARK_HOME/sbin</div><div class="line">./start-master.sh</div></pre></td></tr></table></figure>
+<p>能够在日志文件里面看见很多信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">17/04/25 11:43:38 INFO Utils: Successfully started service &apos;sparkMaster&apos; on port 7077.</div><div class="line">17/04/25 11:43:38 INFO Master: Starting Spark master at spark://LZFdeMacBook-Pro.local:7077</div><div class="line">17/04/25 11:43:38 INFO Master: Running Spark version 2.1.0</div><div class="line">17/04/25 11:43:38 INFO Utils: Successfully started service &apos;MasterUI&apos; on port 8080.</div><div class="line">17/04/25 11:43:38 INFO MasterWebUI: Bound MasterWebUI to 0.0.0.0, and started at http://192.168.1.102:8080</div><div class="line">17/04/25 11:43:38 INFO Utils: Successfully started service on port 6066.</div><div class="line">17/04/25 11:43:38 INFO StandaloneRestServer: Started REST server for submitting applications on port 6066</div><div class="line">17/04/25 11:43:39 INFO Master: I have been elected leader! New state: ALIVE</div></pre></td></tr></table></figure></p>
+<p>能够看见master已经起在了 <strong>spark://LZFdeMacBook-Pro.local:7077</strong><br>和一个webUI <strong>Bound MasterWebUI … and started at <a href="http://192.168.1.102:8080" target="_blank" rel="external">http://192.168.1.102:8080</a></strong><br>所以我们访问 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> 能看见如下</p>
+<hr>
+<p><img src="/image/1.png" alt="png1"></p>
+<hr>
+<h3 id="2-启动slave"><a href="#2-启动slave" class="headerlink" title="2.启动slave"></a>2.启动slave</h3><p>此时 我们还没有slave 所以我们需要起一个slave</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./start-slave.sh LZFdeMacBook-Pro.local:7077</div></pre></td></tr></table></figure>
+<p>LZFdeMacBook-Pro.local:7077 这个为我的master起的地址，需要在host文件里面配置LZFdeMacBook-Pro.local为localhost<br>此时在 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> 上能看见我们成功的启动了一个slave</p>
+<hr>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/image/2.png" alt="png2"></h2><h3 id="3-启动thrift-server"><a href="#3-启动thrift-server" class="headerlink" title="3.启动thrift server"></a>3.启动thrift server</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./start-thriftserver.sh --master spark://LZFdeMacBook-Pro.local:7077</div></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<ul>
+<li>需要带上参数 master 不然的话 thriftserver 也能启动起来但是不会显示在webUI上面</li>
+<li>master 参数的形式也一定要带上 spark:// 这种，不然会报错找不到master什么的</li>
+</ul>
+</blockquote>
+<p>然后我们能在页面上看见我们起动起来的application</p>
+<hr>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="/image/3.png" alt="png3"></h2><h3 id="4-用beeline连接thrift-server"><a href="#4-用beeline连接thrift-server" class="headerlink" title="4.用beeline连接thrift server"></a>4.用beeline连接thrift server</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -172,7 +236,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -185,17 +249,88 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/25/第一篇博客/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2017/04/25/第一篇博客/", 
+    sourceId: "第一篇博客",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+  
+
+  
 
 
           </div>
@@ -217,8 +352,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
