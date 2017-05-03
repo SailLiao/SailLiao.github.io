@@ -6,14 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Sail</title>
+  <title>Spark thrift server 连接 Elasticsearch | Sail</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Sail">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Spark连接Elasticsearch Elasticsearch 作为目前最好的搜索框架，同时也提供了对spark的支持，经过一天的时间踩了很多坑，所以记录下来和分享   启动 spark thrift server  创建一张简单的es表 往es表里面插入数据，进行查询 在es里面查看是否有记录">
+<meta name="keywords" content="spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark thrift server 连接 Elasticsearch">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/spark-es/index.html">
 <meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Spark连接Elasticsearch Elasticsearch 作为目前最好的搜索框架，同时也提供了对spark的支持，经过一天的时间踩了很多坑，所以记录下来和分享   启动 spark thrift server  创建一张简单的es表 往es表里面插入数据，进行查询 在es里面查看是否有记录">
+<meta property="og:image" content="http://yoursite.com/image/4.png">
+<meta property="og:image" content="http://yoursite.com/image/5.png">
+<meta property="og:image" content="http://yoursite.com/image/6.png">
+<meta property="og:updated_time" content="2017-05-03T11:41:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sail">
+<meta name="twitter:title" content="Spark thrift server 连接 Elasticsearch">
+<meta name="twitter:description" content="Spark连接Elasticsearch Elasticsearch 作为目前最好的搜索框架，同时也提供了对spark的支持，经过一天的时间踩了很多坑，所以记录下来和分享   启动 spark thrift server  创建一张简单的es表 往es表里面插入数据，进行查询 在es里面查看是否有记录">
+<meta name="twitter:image" content="http://yoursite.com/image/4.png">
   
     <link rel="alternative" href="/atom.xml" title="Sail" type="application/atom+xml">
   
@@ -131,16 +140,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-spark-es" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-spark-es" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/03/spark-es/">Spark thrift server 连接 Elasticsearch</a>
+    <h1 class="article-title" itemprop="name">
+      Spark thrift server 连接 Elasticsearch
     </h1>
   
 
@@ -164,93 +171,70 @@
 </ul>
 </blockquote>
 <hr>
-        
-          <a class="article-more-a" href="/2017/05/03/spark-es/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/spark/" class="article-tag-list-link color1">spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/03/spark-es/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/25/第一篇博客/">Spark2.1初体验</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/25/第一篇博客/" class="archive-article-date">
-  	<time datetime="2017-04-25T02:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Spark2-1初体验"><a href="#Spark2-1初体验" class="headerlink" title="Spark2.1初体验"></a>Spark2.1初体验</h1><hr>
-<p>Spark 作为现在最流行的大数据解决方案，是一种快速、通用分布式计算框架，非常适合处理大量数据，特别是机器学习，现在开始从最初的一点一滴学起。</p>
+<a id="more"></a>
+<h2 id="启动-Thrift-Server"><a href="#启动-Thrift-Server" class="headerlink" title="启动 Thrift Server"></a>启动 Thrift Server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd $SPARK_HOME/sbin</div><div class="line">./start-thriftserver.sh --master yarn</div></pre></td></tr></table></figure>
+<p>因为我的集群是spark on yarn 模式的，所以此处指定的master为yarn，正常启动后能在hadoop页面看见我们所启动的application</p>
+<p><img src="/image/4.png" alt="png4"></p>
+<hr>
+<h2 id="通过-beeline-的方式连接-Thrift-Server"><a href="#通过-beeline-的方式连接-Thrift-Server" class="headerlink" title="通过 beeline 的方式连接 Thrift Server"></a>通过 beeline 的方式连接 Thrift Server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[hadoop@hadoop01 sbin]$ beeline</div><div class="line">Beeline version 1.2.1.spark2 by Apache Hive</div><div class="line">beeline&gt; !connect jdbc:hive2://hadoop01:10000</div><div class="line">Connecting to jdbc:hive2://hadoop01:10000</div><div class="line">Enter username for jdbc:hive2://hadoop01:10000: hadoop</div><div class="line">Enter password for jdbc:hive2://hadoop01:10000: ******</div><div class="line">17/05/03 19:00:27 INFO Utils: Supplied authorities: hadoop01:10000</div><div class="line">17/05/03 19:00:27 INFO Utils: Resolved authority: hadoop01:10000</div><div class="line">17/05/03 19:00:27 INFO HiveConnection: Will try to open client transport with JDBC Uri: jdbc:hive2://hadoop01:10000</div><div class="line">Connected to: Spark SQL (version 2.1.0)</div><div class="line">Driver: Hive JDBC (version 1.2.1.spark2)</div><div class="line">Transaction isolation: TRANSACTION_REPEATABLE_READ</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt;</div></pre></td></tr></table></figure>
+<h2 id="选择一个测试的数据库"><a href="#选择一个测试的数据库" class="headerlink" title="选择一个测试的数据库"></a>选择一个测试的数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">0: jdbc:hive2://hadoop01:10000&gt; use lzf_test_spark;</div><div class="line">+---------+--+</div><div class="line">| Result  |</div><div class="line">+---------+--+</div><div class="line">+---------+--+</div><div class="line">No rows selected (0.017 seconds)</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt; show tables;</div><div class="line">+-----------+------------+--------------+--+</div><div class="line">| database  | tableName  | isTemporary  |</div><div class="line">+-----------+------------+--------------+--+</div><div class="line">+-----------+------------+--------------+--+</div><div class="line">No rows selected (0.027 seconds)</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt;</div></pre></td></tr></table></figure>
+<h2 id="创建一张es表"><a href="#创建一张es表" class="headerlink" title="创建一张es表"></a>创建一张es表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">0: jdbc:hive2://hadoop01:10000&gt; create table test(</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt; id bigint,</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt; name string</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt; )</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt; using org.elasticsearch.spark.sql</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt; options(</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt; &apos;nodes&apos; = &apos;hadoop01:9200,hadoop02:9200,hadoop03:9200,hadoop04:9200&apos;,</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt; &apos;es.index.auto.create&apos; = &apos;true&apos;,</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt; &apos;es.resource&apos; = &apos;test_es/test&apos;);</div><div class="line">+---------+--+</div><div class="line">| Result  |</div><div class="line">+---------+--+</div><div class="line">+---------+--+</div><div class="line">No rows selected (0.089 seconds)</div><div class="line">0: jdbc:hive2://hadoop01:10000&gt;</div></pre></td></tr></table></figure>
+<hr>
+<p>注意：</p>
 <blockquote>
 <ul>
-<li>安装JDK、Scala、Spark</li>
-<li>standalone 模式下起一个master、一个slave</li>
-<li>启动spark thrift server 服务</li>
-<li>用beelibe的方式连接spark thrift server</li>
+<li>int 的字段在生成es里面的数据类型的时候默认是long所以如果用int的类型，能够插入，但是在<br>查询的时候会报错说类型转换错误,所以最好将int的字段设置为bigint,可能有更好的能够映射的方法,还没找到,毕竟用bigint会不会有额外的什么浪费还不是很了解</li>
+<li>需要指定 org.elasticsearch.spark.sql</li>
+<li>参数中 nodes 为es所在的节点</li>
+<li>es.index.auto.create 的意思是对记录默认给一个id,也可以将id配置为自己表的唯一列</li>
+<li>es.resource 为es所在的index和type</li>
 </ul>
 </blockquote>
-<hr>
-        
-          <a class="article-more-a" href="/2017/04/25/第一篇博客/#more">more >></a>
-        
+<h2 id="往es表插入一些数据"><a href="#往es表插入一些数据" class="headerlink" title="往es表插入一些数据"></a>往es表插入一些数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">insert into test values (1, &apos;a&apos;);</div><div class="line">insert into test values (2, &apos;b&apos;);</div></pre></td></tr></table></figure>
+<h2 id="查询es表"><a href="#查询es表" class="headerlink" title="查询es表"></a>查询es表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">0: jdbc:hive2://hadoop01:10000&gt; select * from test;</div><div class="line">+-----+-------+--+</div><div class="line">| id  | name  |</div><div class="line">+-----+-------+--+</div><div class="line">| 1   | a     |</div><div class="line">| 2   | b     |</div><div class="line">+-----+-------+--+</div><div class="line">2 rows selected (0.271 seconds)</div></pre></td></tr></table></figure>
+<h2 id="通过-postman-查询看看es下面有没有"><a href="#通过-postman-查询看看es下面有没有" class="headerlink" title="通过 postman 查询看看es下面有没有"></a>通过 postman 查询看看es下面有没有</h2><p><img src="/image/5.png" alt="png5"></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<ul>
+<li>版本问题 这个是最坑的，开源的东西迭代相当快，版本演进比较激进，兼容性比较差一点。之前集群的scala版本是2.12，所以一直报错<br>java.lang.NoClassDefFoundError: scala/collection/GenTraversableOnce$class<br>这个问题也解决了很久，后来在es的官网找到了对应的版本，所以一定要从官网找东西，百度真心不靠谱，谷歌还能找到不错的东西。</li>
+</ul>
+</blockquote>
+<p><img src="/image/6.png" alt="png6"></p>
+<blockquote>
+<ul>
+<li>选取的scala版本是 2.11, spark 的版本是2.1, es-haoop 的jar包也就是上图的最后一个</li>
+<li>一定要保证spark里面jars文件夹下面的scala的包的版本和本机的scala版本一样,因为可能有编译时一个scala版本，运行是另外一个scala版本，有可能会报错的</li>
+</ul>
+</blockquote>
+<h2 id="其他的东西"><a href="#其他的东西" class="headerlink" title="其他的东西"></a>其他的东西</h2><blockquote>
+<ul>
+<li>查找jar包不错的网站是 <a href="http://search.maven.org/" target="_blank" rel="external">http://search.maven.org/</a> 可以根据一些类路径查找包 不过要挂代理，我用的shadowsocks 还是不错</li>
+<li>看东西还是要从官网找或者谷歌</li>
+</ul>
+</blockquote>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -281,22 +265,100 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/25/第一篇博客/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/03/spark-es/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/25/第一篇博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spark2.1初体验
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 
 
 
   
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2017/05/03/spark-es/", 
+    sourceId: "spark-es",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+  
+
   
 
 
@@ -318,8 +380,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
