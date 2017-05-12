@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: spark | Sail</title>
+  <title>zeppelin安装与测试 | Sail</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Sail">
-<meta property="og:url" content="http://yoursite.com/tags/spark/index.html">
+  <meta name="description" content="zeppelin安装与测试 zeppelin是一个非常不错的图形化工具很强大，今天测试了简单的安装与图表显示   下载安装zeppelin 配置zeepline和sprak 进行简单的测试">
+<meta name="keywords" content="zeppelin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zeppelin安装与测试">
+<meta property="og:url" content="http://yoursite.com/2017/05/11/zeepline安装与测试/index.html">
 <meta property="og:site_name" content="Sail">
+<meta property="og:description" content="zeppelin安装与测试 zeppelin是一个非常不错的图形化工具很强大，今天测试了简单的安装与图表显示   下载安装zeppelin 配置zeepline和sprak 进行简单的测试">
+<meta property="og:image" content="http://yoursite.com/image/zeppelin-1.png">
+<meta property="og:image" content="http://yoursite.com/image/zeppelin-2.png">
+<meta property="og:image" content="http://yoursite.com/image/zeppelin-3.png">
+<meta property="og:image" content="http://yoursite.com/image/zeppelin-4.png">
+<meta property="og:image" content="http://yoursite.com/image/zeppelin-5.png">
+<meta property="og:image" content="http://yoursite.com/image/zeppelin-6.png">
+<meta property="og:image" content="http://yoursite.com/image/zeppelin-7.png">
+<meta property="og:updated_time" content="2017-05-11T11:32:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sail">
+<meta name="twitter:title" content="zeppelin安装与测试">
+<meta name="twitter:description" content="zeppelin安装与测试 zeppelin是一个非常不错的图形化工具很强大，今天测试了简单的安装与图表显示   下载安装zeppelin 配置zeepline和sprak 进行简单的测试">
+<meta name="twitter:image" content="http://yoursite.com/image/zeppelin-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Sail" type="application/atom+xml">
   
@@ -131,48 +144,105 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-zeepline安装与测试" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/03/spark-es/" class="archive-article-date">
-  	<time datetime="2017-05-03T10:43:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/03/spark-es/">Spark thrift server 连接 Elasticsearch</a>
+    <h1 class="article-title" itemprop="name">
+      zeppelin安装与测试
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/11/zeepline安装与测试/" class="archive-article-date">
+  	<time datetime="2017-05-11T09:19:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="zeppelin安装与测试"><a href="#zeppelin安装与测试" class="headerlink" title="zeppelin安装与测试"></a>zeppelin安装与测试</h1><hr>
+<p>zeppelin是一个非常不错的图形化工具很强大，今天测试了简单的安装与图表显示</p>
+<blockquote>
+<ul>
+<li>下载安装zeppelin</li>
+<li>配置zeepline和sprak</li>
+<li>进行简单的测试</li>
+</ul>
+</blockquote>
+<hr>
+<a id="more"></a>
+<h2 id="下载zeppelin"><a href="#下载zeppelin" class="headerlink" title="下载zeppelin"></a>下载zeppelin</h2><p>下载的地址 <a href="http://www.apache.org/dyn/closer.cgi/zeppelin/zeppelin-0.7.1/zeppelin-0.7.1-bin-all.tgz" target="_blank" rel="external">http://www.apache.org/dyn/closer.cgi/zeppelin/zeppelin-0.7.1/zeppelin-0.7.1-bin-all.tgz</a><br>一共有两种，我下的是 all interpreters 的，大概是700M<br>网站较卡，要挂vpn</p>
+<h2 id="配置zeppelin"><a href="#配置zeppelin" class="headerlink" title="配置zeppelin"></a>配置zeppelin</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd $zeppelin_home/conf</div><div class="line">cp zeppelin-site.xml.template zeppelin-site.xml</div><div class="line">cp zeppelin-env.sh.template zeppelin-env.sh</div></pre></td></tr></table></figure>
+<p>在 zeppelin-env.sh 中配置一些参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export SPARK_HOME=/opt/spacewalk/spark-with-hive</div><div class="line">export SPARK_APP_NAME=&quot;zeppelin spark&quot;</div><div class="line">export HADOOP_CONF_DIR=/opt/spacewalk/hadoop/etc/hadoop</div></pre></td></tr></table></figure>
+<p>因为我的服务器上有tomcat占用了8080端口，所以我将 zeppelin-site.xml 中端口改到了9090上去</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>zeppelin.server.port<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>9090<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>Server port.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="启动zeppelin"><a href="#启动zeppelin" class="headerlink" title="启动zeppelin"></a>启动zeppelin</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd $zeppelin_home/bin</div><div class="line">./zeppelin-daemon.sh start</div><div class="line">Zeppelin start                                             [  OK  ]</div></pre></td></tr></table></figure>
+<p>停止的话是用 ./zeppelin-daemon.sh stop</p>
+<p> 然后访问 ip:9090 就能访问页面啦</p>
+<p><img src="/image/zeppelin-1.png" alt="png4"></p>
+<h2 id="在页面上配置spark"><a href="#在页面上配置spark" class="headerlink" title="在页面上配置spark"></a>在页面上配置spark</h2><p>进入interpreter管理<br><img src="/image/zeppelin-2.png" alt="png4"></p>
+<p>搜索spark<br><img src="/image/zeppelin-3.png" alt="png4"><br>注意地方是master，根据不同的集群的方式是不同的</p>
+<blockquote>
+<ul>
+<li>local[*] in local mode</li>
+<li>spark://master:7077 in standalone cluster</li>
+<li>yarn-client in Yarn client mode</li>
+<li>mesos://host:5050 in Mesos cluster</li>
+</ul>
+</blockquote>
+<h2 id="使用自带的测试"><a href="#使用自带的测试" class="headerlink" title="使用自带的测试"></a>使用自带的测试</h2><p><img src="/image/zeppelin-4.png" alt="png4"></p>
+<p>注意的地方，Load data into table 的 文件可能会访问不到，我是挂了vpn去下载下来，然后传到hdfs上面的</p>
+<p><img src="/image/zeppelin-5.png" alt="png4"></p>
+<p>运行全部试试吧</p>
+<p><img src="/image/zeppelin-6.png" alt="png4"></p>
+<p> 很强大，图像也很好看。还支持各种的语法和数据库什么的，也可以创建一个notebook写自己的代码</p>
+<p><img src="/image/zeppelin-7.png" alt="png4"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">spark</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">zeppelin</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -185,66 +255,102 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/11/zeepline安装与测试/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/25/第一篇博客/" class="archive-article-date">
-  	<time datetime="2017-04-25T02:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/25/第一篇博客/">Spark2.1初体验</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/spark/" class="article-tag-list-link color1">spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/03/spark-es/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spark thrift server 连接 Elasticsearch
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
   
-    </div></section>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2017/05/11/zeepline安装与测试/", 
+    sourceId: "zeepline安装与测试",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -266,9 +372,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
