@@ -6,14 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: spark | Sail</title>
+  <title>Kettle 初体验 | Sail</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Sail">
-<meta property="og:url" content="http://yoursite.com/categories/spark/index.html">
+  <meta name="description" content="Kettle 的简单实用 Kettle 作为免费的抽数据的工具功能还是很强大的，我们需要将一些关系型数据库的数据抽取出来，好做为原数据导入到 hive 或者 spark 里面   下载 Kettle Kettle在本机上跑一个测试 在服务器上跑Kettle">
+<meta name="keywords" content="kettle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kettle 初体验">
+<meta property="og:url" content="http://yoursite.com/2017/06/09/Kettle-初体验/index.html">
 <meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Kettle 的简单实用 Kettle 作为免费的抽数据的工具功能还是很强大的，我们需要将一些关系型数据库的数据抽取出来，好做为原数据导入到 hive 或者 spark 里面   下载 Kettle Kettle在本机上跑一个测试 在服务器上跑Kettle">
+<meta property="og:image" content="http://yoursite.com/image/kettle-1.png">
+<meta property="og:image" content="http://yoursite.com/image/kettle-2.png">
+<meta property="og:image" content="http://yoursite.com/image/kettle-3.png">
+<meta property="og:image" content="http://yoursite.com/image/kettle-4.png">
+<meta property="og:image" content="http://yoursite.com/image/kettle-5.png">
+<meta property="og:image" content="http://yoursite.com/image/kettle-6.png">
+<meta property="og:image" content="http://yoursite.com/image/kettle-7.png">
+<meta property="og:image" content="http://yoursite.com/image/kettle-8.png">
+<meta property="og:image" content="http://yoursite.com/image/kettle-9.png">
+<meta property="og:image" content="http://yoursite.com/image/kettle-10.png">
+<meta property="og:updated_time" content="2017-06-09T05:30:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sail">
+<meta name="twitter:title" content="Kettle 初体验">
+<meta name="twitter:description" content="Kettle 的简单实用 Kettle 作为免费的抽数据的工具功能还是很强大的，我们需要将一些关系型数据库的数据抽取出来，好做为原数据导入到 hive 或者 spark 里面   下载 Kettle Kettle在本机上跑一个测试 在服务器上跑Kettle">
+<meta name="twitter:image" content="http://yoursite.com/image/kettle-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Sail" type="application/atom+xml">
   
@@ -131,169 +147,216 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Kettle-初体验" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kettle 初体验
+    </h1>
+  
+
+        
+        <a href="/2017/06/09/Kettle-初体验/" class="archive-article-date">
+  	<time datetime="2017-06-09T03:26:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Kettle-的简单实用"><a href="#Kettle-的简单实用" class="headerlink" title="Kettle 的简单实用"></a>Kettle 的简单实用</h1><hr>
+<p>Kettle 作为免费的抽数据的工具功能还是很强大的，我们需要将一些关系型数据库的数据抽取出来，好做为原数据导入到 hive 或者 spark 里面</p>
+<blockquote>
+<ul>
+<li>下载 Kettle</li>
+<li>Kettle在本机上跑一个测试</li>
+<li>在服务器上跑Kettle</li>
+</ul>
+</blockquote>
+<hr>
+<a id="more"></a>
+<h2 id="下载Kettle"><a href="#下载Kettle" class="headerlink" title="下载Kettle"></a>下载Kettle</h2><p><a href="http://community.pentaho.com/projects/data-integration/" target="_blank" rel="external">http://community.pentaho.com/projects/data-integration/</a></p>
+<p>运行 Kettle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd data-integration</div><div class="line">./spoon.sh</div></pre></td></tr></table></figure></p>
+<p>能发现这是个java写的，所以JDK之类的也是必须的</p>
+<h2 id="新建个测试的任务"><a href="#新建个测试的任务" class="headerlink" title="新建个测试的任务"></a>新建个测试的任务</h2><p><img src="/image/kettle-1.png" alt="png4"></p>
+<p>在输入中选择表输入，再在输出中选择文本文件输出，最后能看见两个步骤</p>
+<p><img src="/image/kettle-2.png" alt="png4"></p>
+<p>点击 表输入 进行编辑</p>
+<p>发现数据库连接那里没有东西，所以需要新加一个数据库连接，这里我们用的是informix的数据库</p>
+<p><img src="/image/kettle-3.png" alt="png4"></p>
+<p>需要注意的是需要将数据库连接驱动的jar包放入到目录的lib文件夹里面，因为用的是JDBC的方式连接的目标数据库，所以驱动肯定是必须的</p>
+<p>回到表输入的编辑页面，选择我们测试成功的连接，写一个简单的测试语句</p>
+<p><img src="/image/kettle-4.png" alt="png4"></p>
+<p>可以预览一下</p>
+<p><img src="/image/kettle-5.png" alt="png4"></p>
+<p>能看到数据了，是不是很开心</p>
+<p>接下来我们开始编辑输出的环节,因为是中文的，很多选项都是见名知意的</p>
+<p><img src="/image/kettle-6.png" alt="png4"></p>
+<p>注意点的是在内容的选项卡里面</p>
+<p><img src="/image/kettle-7.png" alt="png4"></p>
+<p>一般的分隔符选 竖线 好一些，因为我们在创建 hive 或者 spark 的时候会指定我们的文件的分割方式，如果是逗号、分号之类常用的，万一在字段里面有，就会切割错误，字段类型就映射不上了，数据也就错了</p>
+<p>默认是会导出头部的，最好不要导出头部</p>
+<p>保存后，点击运行</p>
+<p><img src="/image/kettle-8.png" alt="png4"></p>
+<p>正常的话能看见任务已经运行成功了</p>
+<p><img src="/image/kettle-9.png" alt="png4"></p>
+<p>会发现目标的文件也生成了</p>
+<p><img src="/image/kettle-10.png" alt="png4"></p>
+<p>也是用竖线分割的，是不是很开心</p>
+<p>保存后会生成 一个  ktr 文件，这个文件也是可以在服务器上运行的，一样需要将下载的kettle包传到服务器上，运行的命令为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./pan.sh  -file=/root/data-integration/ktr/test.ktr &gt; /root/data-integration//log/test.log</div></pre></td></tr></table></figure></p>
+<p>只需要指定 -file 就行了</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/zeepline安装与测试/" class="archive-article-date">
-  	<time datetime="2017-05-11T09:19:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/zeepline安装与测试/">zeppelin安装与测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">zeppelin</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kettle</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/spark/" class="article-tag-list-link color1">spark</a>
+        			<a href="/categories/kettle/" class="article-tag-list-link color2">kettle</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/09/Kettle-初体验/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/03/spark-es/" class="archive-article-date">
-  	<time datetime="2017-05-03T10:43:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/03/spark-es/">Spark thrift server 连接 Elasticsearch</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/spark/" class="article-tag-list-link color1">spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/25/第一篇博客/" class="archive-article-date">
-  	<time datetime="2017-04-25T02:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/25/第一篇博客/">Spark2.1初体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/spark/" class="article-tag-list-link color1">spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2017/06/07/spring-boot-热部署/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          spring-boot 热部署
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2017/06/09/Kettle-初体验/", 
+    sourceId: "Kettle-初体验",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -315,10 +378,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		root: "/",
 		innerArchive: true,
