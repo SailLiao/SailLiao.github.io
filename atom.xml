@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SailLiao</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://sailliao.top/"/>
+  <updated>2018-08-31T05:59:30.895Z</updated>
+  <id>http://sailliao.top/</id>
+  
+  <author>
+    <name>廖梓帆</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 中的&amp;和&amp;&amp;</title>
+    <link href="http://sailliao.top/2018/01/30/Java%20%E4%B8%AD%E7%9A%84&amp;%E5%92%8C&amp;&amp;/"/>
+    <id>http://sailliao.top/2018/01/30/Java 中的&amp;和&amp;&amp;/</id>
+    <published>2018-01-30T08:12:51.000Z</published>
+    <updated>2018-08-31T05:59:30.895Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文介绍了java中 &amp;和&amp;&amp;的基础使用</p><a id="more"></a><h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>&amp;和&amp;&amp;都可以用作逻辑与的运算符，表示逻辑与(and)<br>当运算符两边的表达式的结果都为 true 时，整个运算结果才为 true，否则，只要有一方为 false，则结果为 false</p><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>&amp;&amp;还具有短路的功能，即如果第一个表达式为 false，则不再计算第二个表达式，<br>例如，对于 if(str != null&amp;&amp; !str.equals(“”)) 表达式，当 str 为 null 时，后面的表达式不会执行，所以不会出现 NullPointerException 如果将&amp;&amp;改为&amp;，则会抛出 NullPointerException 异常<br>If(x==33 &amp;++y&gt;0) y 会增长， If(x==33 &amp;&amp; ++y&gt;0)不会增长<br>&amp;还可以用作位运算符，当&amp;操作符两边的表达式不是 boolean 类型时， &amp;表示按位与操作<br>我们通常使用0x0f 来与一个整数进行&amp;运算，来获取该整数的最低4个 bit 位，例如， 0x31 &amp; 0x0f 的结果为0x01</p><h2 id="注意的地方"><a href="#注意的地方" class="headerlink" title="注意的地方"></a>注意的地方</h2><p>x++ 与 ++x<br>但他们是单独的式子的时候 ，没区别 但是当他们在其余的表达式中的时候就有了<br>x++是先输出x的值在进行自加<br>而++x是先自加然后在输出x的值<br><img src="/image/&amp;-1.png" alt="png4"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍了java中 &amp;amp;和&amp;amp;&amp;amp;的基础使用&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://sailliao.top/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://sailliao.top/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kettle 初体验</title>
+    <link href="http://sailliao.top/2017/06/09/Kettle-%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
+    <id>http://sailliao.top/2017/06/09/Kettle-初体验/</id>
+    <published>2017-06-09T03:26:12.000Z</published>
+    <updated>2018-08-31T06:18:38.863Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文介绍了Kettle的简单使用</p><a id="more"></a><hr><p>Kettle 作为免费的抽数据的工具功能还是很强大的，我们需要将一些关系型数据库的数据抽取出来，好做为原数据导入到 hive 或者 spark 里面</p><blockquote><ul><li>下载 Kettle</li><li>Kettle在本机上跑一个测试</li><li>在服务器上跑Kettle</li></ul></blockquote><hr><h2 id="下载Kettle"><a href="#下载Kettle" class="headerlink" title="下载Kettle"></a>下载Kettle</h2><p><a href="http://community.pentaho.com/projects/data-integration/" target="_blank" rel="noopener">http://community.pentaho.com/projects/data-integration/</a></p><p>运行 Kettle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd data-integration</span><br><span class="line">./spoon.sh</span><br></pre></td></tr></table></figure></p><p>能发现这是个java写的，所以JDK之类的也是必须的</p><h2 id="新建个测试的任务"><a href="#新建个测试的任务" class="headerlink" title="新建个测试的任务"></a>新建个测试的任务</h2><p><img src="/image/kettle-1.png" alt="png4"></p><p>在输入中选择表输入，再在输出中选择文本文件输出，最后能看见两个步骤</p><p><img src="/image/kettle-2.png" alt="png4"></p><p>点击 表输入 进行编辑</p><p>发现数据库连接那里没有东西，所以需要新加一个数据库连接，这里我们用的是informix的数据库</p><p><img src="/image/kettle-3.png" alt="png4"></p><p>需要注意的是需要将数据库连接驱动的jar包放入到目录的lib文件夹里面，因为用的是JDBC的方式连接的目标数据库，所以驱动肯定是必须的</p><p>回到表输入的编辑页面，选择我们测试成功的连接，写一个简单的测试语句</p><p><img src="/image/kettle-4.png" alt="png4"></p><p>可以预览一下</p><p><img src="/image/kettle-5.png" alt="png4"></p><p>能看到数据了，是不是很开心</p><p>接下来我们开始编辑输出的环节,因为是中文的，很多选项都是见名知意的</p><p><img src="/image/kettle-6.png" alt="png4"></p><p>注意点的是在内容的选项卡里面</p><p><img src="/image/kettle-7.png" alt="png4"></p><p>一般的分隔符选 竖线 好一些，因为我们在创建 hive 或者 spark 的时候会指定我们的文件的分割方式，如果是逗号、分号之类常用的，万一在字段里面有，就会切割错误，字段类型就映射不上了，数据也就错了</p><p>默认是会导出头部的，最好不要导出头部</p><p>保存后，点击运行</p><p><img src="/image/kettle-8.png" alt="png4"></p><p>正常的话能看见任务已经运行成功了</p><p><img src="/image/kettle-9.png" alt="png4"></p><p>会发现目标的文件也生成了</p><p><img src="/image/kettle-10.png" alt="png4"></p><p>也是用竖线分割的，是不是很开心</p><p>保存后会生成 一个  ktr 文件，这个文件也是可以在服务器上运行的，一样需要将下载的kettle包传到服务器上，运行的命令为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./pan.sh  -file=/root/data-integration/ktr/test.ktr &gt; /root/data-integration//log/test.log</span><br></pre></td></tr></table></figure></p><p>只需要指定 -file 就行了</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍了Kettle的简单使用&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="大数据" scheme="http://sailliao.top/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="大数据" scheme="http://sailliao.top/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>spring-boot 热部署</title>
+    <link href="http://sailliao.top/2017/06/07/spring-boot-%E7%83%AD%E9%83%A8%E7%BD%B2/"/>
+    <id>http://sailliao.top/2017/06/07/spring-boot-热部署/</id>
+    <published>2017-06-07T02:57:40.000Z</published>
+    <updated>2018-08-31T06:19:46.108Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文介绍了spring-boot在IDEA里面的热部署</p><a id="more"></a><hr><p>在使用spring-boot的时候修改类或者页面或者js、css希望项目能马上生效</p><blockquote><ul><li>配置 devtools</li><li>配置 plugin</li><li>修改 intellij IDEA 配置</li></ul></blockquote><hr><h2 id="配置-pom-xml"><a href="#配置-pom-xml" class="headerlink" title="配置 pom.xml"></a>配置 pom.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span><span class="comment">&lt;!--true的意思是依赖不会传递--&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="修改-intellij-IDEA-配置"><a href="#修改-intellij-IDEA-配置" class="headerlink" title="修改 intellij IDEA 配置"></a>修改 intellij IDEA 配置</h2><p>我是 command + shift + alt + / 调出 Maintenance 选择 Registry:</p><p><img src="/image/spring-boot-hot.png" alt="png4"></p><p>勾选 automatically make</p><p><img src="/image/spring-boot-hot-1.png" alt="png4"></p><p>参考资料：<br>    <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/howto-hotswapping.html" target="_blank" rel="noopener">https://docs.spring.io/spring-boot/docs/current/reference/html/howto-hotswapping.html</a><br>    <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html#using-boot-devtools-restart-exclude" target="_blank" rel="noopener">https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html#using-boot-devtools-restart-exclude</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍了spring-boot在IDEA里面的热部署&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="spring-boot" scheme="http://sailliao.top/categories/spring-boot/"/>
+    
+    
+      <category term="spring-boot" scheme="http://sailliao.top/tags/spring-boot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zeppelin安装与测试</title>
+    <link href="http://sailliao.top/2017/05/11/zeepline%E5%AE%89%E8%A3%85%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
+    <id>http://sailliao.top/2017/05/11/zeepline安装与测试/</id>
+    <published>2017-05-11T09:19:18.000Z</published>
+    <updated>2018-08-31T06:20:39.010Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文介绍了zeppelin的简单使用</p><a id="more"></a><hr><p>zeppelin是一个非常不错的图形化工具很强大，今天测试了简单的安装与图表显示</p><blockquote><ul><li>下载安装zeppelin</li><li>配置zeepline和sprak</li><li>进行简单的测试</li></ul></blockquote><hr><h2 id="下载zeppelin"><a href="#下载zeppelin" class="headerlink" title="下载zeppelin"></a>下载zeppelin</h2><p>下载的地址 <a href="http://www.apache.org/dyn/closer.cgi/zeppelin/zeppelin-0.7.1/zeppelin-0.7.1-bin-all.tgz" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.cgi/zeppelin/zeppelin-0.7.1/zeppelin-0.7.1-bin-all.tgz</a><br>一共有两种，我下的是 all interpreters 的，大概是700M<br>网站较卡，要挂vpn</p><h2 id="配置zeppelin"><a href="#配置zeppelin" class="headerlink" title="配置zeppelin"></a>配置zeppelin</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd $zeppelin_home/conf</span><br><span class="line">cp zeppelin-site.xml.template zeppelin-site.xml</span><br><span class="line">cp zeppelin-env.sh.template zeppelin-env.sh</span><br></pre></td></tr></table></figure><p>在 zeppelin-env.sh 中配置一些参数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export SPARK_HOME=/opt/spacewalk/spark-with-hive</span><br><span class="line">export SPARK_APP_NAME=&quot;zeppelin spark&quot;</span><br><span class="line">export HADOOP_CONF_DIR=/opt/spacewalk/hadoop/etc/hadoop</span><br></pre></td></tr></table></figure><p>因为我的服务器上有tomcat占用了8080端口，所以我将 zeppelin-site.xml 中端口改到了9090上去</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>zeppelin.server.port<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>9090<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>Server port.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="启动zeppelin"><a href="#启动zeppelin" class="headerlink" title="启动zeppelin"></a>启动zeppelin</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd $zeppelin_home/bin</span><br><span class="line">./zeppelin-daemon.sh start</span><br><span class="line">Zeppelin start                                             [  OK  ]</span><br></pre></td></tr></table></figure><p>停止的话是用 ./zeppelin-daemon.sh stop</p><p> 然后访问 ip:9090 就能访问页面啦</p><p><img src="/image/zeppelin-1.png" alt="png4"></p><h2 id="在页面上配置spark"><a href="#在页面上配置spark" class="headerlink" title="在页面上配置spark"></a>在页面上配置spark</h2><p>进入interpreter管理<br><img src="/image/zeppelin-2.png" alt="png4"></p><p>搜索spark<br><img src="/image/zeppelin-3.png" alt="png4"><br>注意地方是master，根据不同的集群的方式是不同的</p><blockquote><ul><li>local[*] in local mode</li><li>spark://master:7077 in standalone cluster</li><li>yarn-client in Yarn client mode</li><li>mesos://host:5050 in Mesos cluster</li></ul></blockquote><h2 id="使用自带的测试"><a href="#使用自带的测试" class="headerlink" title="使用自带的测试"></a>使用自带的测试</h2><p><img src="/image/zeppelin-4.png" alt="png4"></p><p>注意的地方，Load data into table 的 文件可能会访问不到，我是挂了vpn去下载下来，然后传到hdfs上面的</p><p><img src="/image/zeppelin-5.png" alt="png4"></p><p>运行全部试试吧</p><p><img src="/image/zeppelin-6.png" alt="png4"></p><p> 很强大，图像也很好看。还支持各种的语法和数据库什么的，也可以创建一个notebook写自己的代码</p><p><img src="/image/zeppelin-7.png" alt="png4"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍了zeppelin的简单使用&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="spark" scheme="http://sailliao.top/categories/spark/"/>
+    
+    
+      <category term="spark" scheme="http://sailliao.top/tags/spark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark thrift server 连接 Elasticsearch</title>
+    <link href="http://sailliao.top/2017/05/03/spark-es/"/>
+    <id>http://sailliao.top/2017/05/03/spark-es/</id>
+    <published>2017-05-03T10:43:28.000Z</published>
+    <updated>2018-08-31T06:21:22.108Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文介绍了使用Spark连接Elasticsearch</p><a id="more"></a><hr><p>Elasticsearch 作为目前最好的搜索框架，同时也提供了对spark的支持，经过一天的时间踩了很多坑，所以记录下来和分享</p><blockquote><ul><li>启动 spark thrift server </li><li>创建一张简单的es表</li><li>往es表里面插入数据，进行查询</li><li>在es里面查看是否有记录</li></ul></blockquote><hr><h2 id="启动-Thrift-Server"><a href="#启动-Thrift-Server" class="headerlink" title="启动 Thrift Server"></a>启动 Thrift Server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME/sbin</span><br><span class="line">./start-thriftserver.sh --master yarn</span><br></pre></td></tr></table></figure><p>因为我的集群是spark on yarn 模式的，所以此处指定的master为yarn，正常启动后能在hadoop页面看见我们所启动的application</p><p><img src="/image/4.png" alt="png4"></p><hr><h2 id="通过-beeline-的方式连接-Thrift-Server"><a href="#通过-beeline-的方式连接-Thrift-Server" class="headerlink" title="通过 beeline 的方式连接 Thrift Server"></a>通过 beeline 的方式连接 Thrift Server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop01 sbin]$ beeline</span><br><span class="line">Beeline version 1.2.1.spark2 by Apache Hive</span><br><span class="line">beeline&gt; !connect jdbc:hive2://hadoop01:10000</span><br><span class="line">Connecting to jdbc:hive2://hadoop01:10000</span><br><span class="line">Enter username for jdbc:hive2://hadoop01:10000: hadoop</span><br><span class="line">Enter password for jdbc:hive2://hadoop01:10000: ******</span><br><span class="line">17/05/03 19:00:27 INFO Utils: Supplied authorities: hadoop01:10000</span><br><span class="line">17/05/03 19:00:27 INFO Utils: Resolved authority: hadoop01:10000</span><br><span class="line">17/05/03 19:00:27 INFO HiveConnection: Will try to open client transport with JDBC Uri: jdbc:hive2://hadoop01:10000</span><br><span class="line">Connected to: Spark SQL (version 2.1.0)</span><br><span class="line">Driver: Hive JDBC (version 1.2.1.spark2)</span><br><span class="line">Transaction isolation: TRANSACTION_REPEATABLE_READ</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt;</span><br></pre></td></tr></table></figure><h2 id="选择一个测试的数据库"><a href="#选择一个测试的数据库" class="headerlink" title="选择一个测试的数据库"></a>选择一个测试的数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">0: jdbc:hive2://hadoop01:10000&gt; use lzf_test_spark;</span><br><span class="line">+---------+--+</span><br><span class="line">| Result  |</span><br><span class="line">+---------+--+</span><br><span class="line">+---------+--+</span><br><span class="line">No rows selected (0.017 seconds)</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt; show tables;</span><br><span class="line">+-----------+------------+--------------+--+</span><br><span class="line">| database  | tableName  | isTemporary  |</span><br><span class="line">+-----------+------------+--------------+--+</span><br><span class="line">+-----------+------------+--------------+--+</span><br><span class="line">No rows selected (0.027 seconds)</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt;</span><br></pre></td></tr></table></figure><h2 id="创建一张es表"><a href="#创建一张es表" class="headerlink" title="创建一张es表"></a>创建一张es表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">0: jdbc:hive2://hadoop01:10000&gt; create table test(</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt; id bigint,</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt; name string</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt; )</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt; using org.elasticsearch.spark.sql</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt; options(</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt; &apos;nodes&apos; = &apos;hadoop01:9200,hadoop02:9200,hadoop03:9200,hadoop04:9200&apos;,</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt; &apos;es.index.auto.create&apos; = &apos;true&apos;,</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt; &apos;es.resource&apos; = &apos;test_es/test&apos;);</span><br><span class="line">+---------+--+</span><br><span class="line">| Result  |</span><br><span class="line">+---------+--+</span><br><span class="line">+---------+--+</span><br><span class="line">No rows selected (0.089 seconds)</span><br><span class="line">0: jdbc:hive2://hadoop01:10000&gt;</span><br></pre></td></tr></table></figure><hr><p>注意：</p><blockquote><ul><li>int 的字段在生成es里面的数据类型的时候默认是long所以如果用int的类型，能够插入，但是在<br>查询的时候会报错说类型转换错误,所以最好将int的字段设置为bigint,可能有更好的能够映射的方法,还没找到,毕竟用bigint会不会有额外的什么浪费还不是很了解</li><li>需要指定 org.elasticsearch.spark.sql</li><li>参数中 nodes 为es所在的节点</li><li>es.index.auto.create 的意思是对记录默认给一个id,也可以将id配置为自己表的唯一列</li><li>es.resource 为es所在的index和type</li></ul></blockquote><h2 id="往es表插入一些数据"><a href="#往es表插入一些数据" class="headerlink" title="往es表插入一些数据"></a>往es表插入一些数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into test values (1, &apos;a&apos;);</span><br><span class="line">insert into test values (2, &apos;b&apos;);</span><br></pre></td></tr></table></figure><h2 id="查询es表"><a href="#查询es表" class="headerlink" title="查询es表"></a>查询es表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0: jdbc:hive2://hadoop01:10000&gt; select * from test;</span><br><span class="line">+-----+-------+--+</span><br><span class="line">| id  | name  |</span><br><span class="line">+-----+-------+--+</span><br><span class="line">| 1   | a     |</span><br><span class="line">| 2   | b     |</span><br><span class="line">+-----+-------+--+</span><br><span class="line">2 rows selected (0.271 seconds)</span><br></pre></td></tr></table></figure><h2 id="通过-postman-查询看看es下面有没有"><a href="#通过-postman-查询看看es下面有没有" class="headerlink" title="通过 postman 查询看看es下面有没有"></a>通过 postman 查询看看es下面有没有</h2><p><img src="/image/5.png" alt="png5"></p><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote><ul><li>版本问题 这个是最坑的，开源的东西迭代相当快，版本演进比较激进，兼容性比较差一点。之前集群的scala版本是2.12，所以一直报错<br>java.lang.NoClassDefFoundError: scala/collection/GenTraversableOnce$class<br>这个问题也解决了很久，后来在es的官网找到了对应的版本，所以一定要从官网找东西，百度真心不靠谱，谷歌还能找到不错的东西。</li></ul></blockquote><p><img src="/image/6.png" alt="png6"></p><blockquote><ul><li>选取的scala版本是 2.11, spark 的版本是2.1, es-haoop 的jar包也就是上图的最后一个</li><li>一定要保证spark里面jars文件夹下面的scala的包的版本和本机的scala版本一样,因为可能有编译时一个scala版本，运行是另外一个scala版本，有可能会报错的</li></ul></blockquote><h2 id="其他的东西"><a href="#其他的东西" class="headerlink" title="其他的东西"></a>其他的东西</h2><blockquote><ul><li>查找jar包不错的网站是 <a href="http://search.maven.org/" target="_blank" rel="noopener">http://search.maven.org/</a> 可以根据一些类路径查找包 不过要挂代理，我用的shadowsocks 还是不错</li><li>看东西还是要从官网找或者谷歌</li></ul></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍了使用Spark连接Elasticsearch&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="spark" scheme="http://sailliao.top/categories/spark/"/>
+    
+    
+      <category term="spark" scheme="http://sailliao.top/tags/spark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark2.1初体验</title>
+    <link href="http://sailliao.top/2017/04/25/Spark2.1%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
+    <id>http://sailliao.top/2017/04/25/Spark2.1初体验/</id>
+    <published>2017-04-25T02:31:11.000Z</published>
+    <updated>2018-08-31T06:21:51.588Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文介绍了简单使用Spark2.1</p><a id="more"></a><hr><p>Spark 作为现在最流行的大数据解决方案，是一种快速、通用分布式计算框架，非常适合处理大量数据，特别是机器学习，现在开始从最初的一点一滴学起。</p><blockquote><ul><li>安装JDK、Scala、Spark</li><li>standalone 模式下起一个master、一个slave</li><li>启动spark thrift server 服务</li><li>用beelibe的方式连接spark thrift server</li></ul></blockquote><hr><h2 id="安装事宜"><a href="#安装事宜" class="headerlink" title="安装事宜"></a>安装事宜</h2><blockquote><ul><li>我所选用的JDK是1.8版本，Scala是2.12.1</li><li>JDK、Scala、Spark均需要配置环境变量</li></ul></blockquote><h3 id="1-启动master"><a href="#1-启动master" class="headerlink" title="1.启动master"></a>1.启动master</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME/sbin</span><br><span class="line">./start-master.sh</span><br></pre></td></tr></table></figure><p>能够在日志文件里面看见很多信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">17/04/25 11:43:38 INFO Utils: Successfully started service &apos;sparkMaster&apos; on port 7077.</span><br><span class="line">17/04/25 11:43:38 INFO Master: Starting Spark master at spark://LZFdeMacBook-Pro.local:7077</span><br><span class="line">17/04/25 11:43:38 INFO Master: Running Spark version 2.1.0</span><br><span class="line">17/04/25 11:43:38 INFO Utils: Successfully started service &apos;MasterUI&apos; on port 8080.</span><br><span class="line">17/04/25 11:43:38 INFO MasterWebUI: Bound MasterWebUI to 0.0.0.0, and started at http://192.168.1.102:8080</span><br><span class="line">17/04/25 11:43:38 INFO Utils: Successfully started service on port 6066.</span><br><span class="line">17/04/25 11:43:38 INFO StandaloneRestServer: Started REST server for submitting applications on port 6066</span><br><span class="line">17/04/25 11:43:39 INFO Master: I have been elected leader! New state: ALIVE</span><br></pre></td></tr></table></figure></p><p>能够看见master已经起在了 <strong>spark://LZFdeMacBook-Pro.local:7077</strong><br>和一个webUI <strong>Bound MasterWebUI … and started at <a href="http://192.168.1.102:8080" target="_blank" rel="noopener">http://192.168.1.102:8080</a></strong><br>所以我们访问 <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> 能看见如下</p><hr><p><img src="/image/1.png" alt="png1"></p><hr><h3 id="2-启动slave"><a href="#2-启动slave" class="headerlink" title="2.启动slave"></a>2.启动slave</h3><p>此时 我们还没有slave 所以我们需要起一个slave</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./start-slave.sh LZFdeMacBook-Pro.local:7077</span><br></pre></td></tr></table></figure><p>LZFdeMacBook-Pro.local:7077 这个为我的master起的地址，需要在host文件里面配置LZFdeMacBook-Pro.local为localhost<br>此时在 <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> 上能看见我们成功的启动了一个slave</p><hr><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/image/2.png" alt="png2"></h2><h3 id="3-启动thrift-server"><a href="#3-启动thrift-server" class="headerlink" title="3.启动thrift server"></a>3.启动thrift server</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./start-thriftserver.sh --master spark://LZFdeMacBook-Pro.local:7077</span><br></pre></td></tr></table></figure><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote><ul><li>需要带上参数 master 不然的话 thriftserver 也能启动起来但是不会显示在webUI上面</li><li>master 参数的形式也一定要带上 spark:// 这种，不然会报错找不到master什么的</li></ul></blockquote><p>然后我们能在页面上看见我们起动起来的application</p><hr><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="/image/3.png" alt="png3"></h2><h3 id="4-用beeline连接thrift-server"><a href="#4-用beeline连接thrift-server" class="headerlink" title="4.用beeline连接thrift server"></a>4.用beeline连接thrift server</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍了简单使用Spark2.1&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="spark" scheme="http://sailliao.top/categories/spark/"/>
+    
+    
+      <category term="spark" scheme="http://sailliao.top/tags/spark/"/>
+    
+  </entry>
+  
+</feed>
